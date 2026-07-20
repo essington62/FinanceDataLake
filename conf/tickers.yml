@@ -1,0 +1,245 @@
+# Fontes e séries do FinanceData Lake — apenas yfinance + FRED, cadência diária.
+# Extraído de crypto-market-state/conf/base/parameters.yml (bloco yfinance/fred).
+
+global:
+  start_date: "2020-10-01"
+
+fred:
+  series:
+
+    - id: FEDFUNDS
+      name: fed_funds_rate
+      category: monetary_policy
+
+    - id: DGS2
+      name: us_2y_yield
+      category: yield_curve
+
+    - id: DGS3
+      name: us_3y_yield
+      category: yield_curve
+
+    - id: DGS5
+      name: us_5y_yield
+      category: yield_curve
+
+    - id: DGS10
+      name: us_10y_yield
+      category: yield_curve
+
+    - id: CPIAUCSL
+      name: cpi
+      category: inflation
+
+    - id: UNRATE
+      name: unemployment_rate
+      category: labor_market
+
+    - id: WALCL
+      name: fed_balance_sheet
+      category: liquidity
+
+    - id: INDPRO
+      name: industrial_production
+      category: growth
+
+    - id: PAYEMS
+      name: nonfarm_payrolls
+      category: growth
+
+    - id: STLFSI4
+      name: macro_financial_stress_index
+      category: macro_risk
+
+    - id: RRPONTSYD
+      name: macro_reverse_repo_balance
+      category: macro_liquidity
+
+    - id: TEDRATE
+      name: macro_ted_spread
+      category: macro_credit
+
+    - id: T10YIE
+      name: breakeven_10y
+      category: inflation
+
+yfinance:
+  indices:
+
+    - ticker: "^VIX"
+      name: vix
+      category: volatility
+
+    - ticker: "DX-Y.NYB"
+      name: dxy
+      category: fx
+
+  assets:
+
+    - ticker: "^GSPC"
+      name: sp500
+      category: equity_index
+
+    - ticker: "^IXIC"
+      name: nasdaq
+      category: equity_index
+
+    - ticker: "GC=F"
+      name: gold
+      category: commodity
+
+    - ticker: "CL=F"
+      name: oil_wti
+      category: commodity
+
+    - ticker: "BZ=F"
+      name: oil_brent
+      category: commodity
+
+    - ticker: "NG=F"
+      name: natural_gas
+      category: commodity
+
+    - ticker: "^MOVE"
+      name: move_index
+      category: volatility
+
+    - ticker: "^OVX"
+      name: oil_volatility
+      category: volatility
+
+    - ticker: "ITA"
+      name: defense_etf
+      category: geopolitical
+
+    - ticker: "HYG"
+      name: high_yield_bonds
+      category: credit
+
+    - ticker: "LQD"
+      name: investment_grade_bonds
+      category: credit
+
+    - ticker: "TIP"
+      name: tips_etf
+      category: inflation
+
+    - ticker: "EWZ"
+      name: ewz
+      category: em_equity
+
+    - ticker: "^BVSP"
+      name: bovespa
+      category: equity_index
+
+    - ticker: "BRL=X"
+      name: usdbrl
+      category: fx
+
+    - ticker: "FXI"
+      name: fxi
+      category: em_equity
+
+    - ticker: "HG=F"
+      name: copper
+      category: commodity
+
+    - ticker: "GLD"
+      name: gld
+      category: commodity
+
+    - ticker: "SLV"
+      name: slv
+      category: commodity
+
+    - ticker: "COPX"
+      name: copx
+      category: commodity
+
+    - ticker: "VWO"
+      name: vwo
+      category: em_equity
+
+    - ticker: "EEM"
+      name: eem
+      category: em_equity
+
+    - ticker: "EWY"
+      name: ewy
+      category: em_equity
+
+    - ticker: "EWT"
+      name: ewt
+      category: em_equity
+
+    - ticker: "EWJ"
+      name: ewj
+      category: em_equity
+
+    - ticker: "SOXX"
+      name: soxx
+      category: sector_equity
+
+    - ticker: "SMH"
+      name: smh
+      category: sector_equity
+
+    - ticker: "QQQ"
+      name: qqq
+      category: equity_etf
+
+    - ticker: "SPY"
+      name: spy
+      category: equity_etf
+
+    - ticker: "IWM"
+      name: iwm
+      category: equity_etf
+
+    - ticker: "ACWI"
+      name: acwi
+      category: equity_etf
+
+    - ticker: "EFA"
+      name: efa
+      category: equity_etf
+
+    - ticker: "KWEB"
+      name: kweb
+      category: em_equity
+
+    - ticker: "GDX"
+      name: gdx
+      category: commodity
+
+    - ticker: "TLT"
+      name: tlt
+      category: bonds
+
+    - ticker: "UUP"
+      name: uup
+      category: fx
+
+    - ticker: "NVDA"
+      name: nvda
+      category: ai_compute
+
+    - ticker: "ORCL"
+      name: orcl
+      category: ai_compute
+
+    - ticker: "VRT"
+      name: vrt
+      category: ai_infra
+
+    - ticker: "PWR"
+      name: pwr
+      category: ai_infra
+
+    - ticker: "NTR"
+      name: ntr
+      category: agro
+
+    - ticker: "URA"
+      name: ura
+      category: defensivo
