@@ -243,3 +243,39 @@ yfinance:
     - ticker: "URA"
       name: ura
       category: defensivo
+
+    - ticker: "MSFT"
+      name: msft
+      category: ai_compute
+
+    - ticker: "META"
+      name: meta
+      category: ai_compute
+
+    - ticker: "AMZN"
+      name: amzn
+      category: ai_compute
+
+    - ticker: "GOOGL"
+      name: googl
+      category: ai_compute
+
+    - ticker: "ETN"
+      name: etn
+      category: ai_infra
+
+    - ticker: "SKHY"
+      name: skhy
+      category: memory_semiconductor
+
+    - ticker: "EQIX"
+      name: eqix
+      category: datacenter_infra
+
+    - ticker: "DLR"
+      name: dlr
+      category: datacenter_infra
+
+    - ticker: "SMCI"
+      name: smci
+      category: ai_hardware

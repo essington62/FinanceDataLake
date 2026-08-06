@@ -13,6 +13,7 @@ Run:
 from __future__ import annotations
 
 import sys
+import time
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
@@ -21,6 +22,10 @@ import yfinance as yf
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from lib.common import atomic_write_parquet, load_tickers, partition_path, read_partition
+
+MAX_RETRIES = 3
+RETRY_SLEEP = 5.0
+INTER_TICKER_SLEEP = 1.5
 
 _OHLCV_RENAME = {
     "Open": "open",
@@ -49,18 +54,29 @@ def _normalize_ohlcv_columns(df: pd.DataFrame) -> pd.DataFrame:
 
 
 def _download_yf_daily(ticker: str, start_date: str, end_date: str) -> pd.DataFrame:
-    try:
-        df = yf.download(
-            tickers=ticker,
-            start=start_date,
-            end=end_date,
-            interval="1d",
-            auto_adjust=False,
-            progress=False,
-            threads=False,
-        )
-    except Exception as e:
-        print(f"[YFINANCE ERROR] Failed to download {ticker}: {e}")
+    df = pd.DataFrame()
+    last_error = None
+    for attempt in range(1, MAX_RETRIES + 1):
+        try:
+            df = yf.download(
+                tickers=ticker,
+                start=start_date,
+                end=end_date,
+                interval="1d",
+                auto_adjust=False,
+                progress=False,
+                threads=False,
+            )
+            last_error = None
+            break
+        except Exception as e:
+            last_error = e
+            print(f"[YFINANCE WARN] {ticker}: attempt {attempt}/{MAX_RETRIES} failed: {e}")
+            if attempt < MAX_RETRIES:
+                time.sleep(RETRY_SLEEP * attempt)
+
+    if last_error is not None:
+        print(f"[YFINANCE ERROR] Failed to download {ticker} after {MAX_RETRIES} attempts: {last_error}")
         return pd.DataFrame()
 
     if df.empty:
@@ -141,6 +157,7 @@ def _update_group(items: list[dict], subdir: str, global_start_date: str, group_
             continue
 
         df_new = _download_yf_daily(ticker, next_start_date, tomorrow_str)
+        time.sleep(INTER_TICKER_SLEEP)
         if df_new.empty:
             print(f"[YFINANCE WARN]   No data downloaded for {ticker}")
             report_rows.append({"asset": name, "inserted_from": None, "inserted_to": None, "rows": 0})
