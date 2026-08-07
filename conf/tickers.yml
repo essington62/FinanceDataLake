@@ -279,3 +279,16 @@ yfinance:
     - ticker: "SMCI"
       name: smci
       category: ai_hardware
+
+    - ticker: TSM
+      name: tsm
+      category: ai_compute
+      # Fundição — CoWoS/empacotamento avançado, catalisador midstream
+
+    - ticker: "688825.SS"
+      name: cxmt
+      category: memory_semiconductor
+      # ChangXin Memory Technologies (CXMT) — STAR Market Xangai,
+      # IPO 27/07/2026, concorrente direto de MU em DRAM/HBM.
+      # Cobertura yfinance já confirmada manualmente (OHLC + volume
+      # consistentes desde o IPO).
