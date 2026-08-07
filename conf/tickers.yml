@@ -292,3 +292,10 @@ yfinance:
       # IPO 27/07/2026, concorrente direto de MU em DRAM/HBM.
       # Cobertura yfinance já confirmada manualmente (OHLC + volume
       # consistentes desde o IPO).
+
+    - ticker: "MU"
+      name: mu
+      category: memory_semiconductor
+      # Micron — DRAM/HBM, ausente do universo até 2026-08-07.
+      # Primeira coleta trará histórico completo desde global.start_date
+      # (2020-10-01), sujeito à disponibilidade retroativa da API yfinance.
