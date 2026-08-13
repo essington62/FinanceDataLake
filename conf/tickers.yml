@@ -268,6 +268,10 @@ yfinance:
       name: skhy
       category: memory_semiconductor
 
+    - ticker: "MU"
+      name: micron
+      category: memory_semiconductor
+
     - ticker: "EQIX"
       name: eqix
       category: datacenter_infra
@@ -293,9 +297,26 @@ yfinance:
       # Cobertura yfinance já confirmada manualmente (OHLC + volume
       # consistentes desde o IPO).
 
-    - ticker: "MU"
-      name: mu
-      category: memory_semiconductor
-      # Micron — DRAM/HBM, ausente do universo até 2026-08-07.
-      # Primeira coleta trará histórico completo desde global.start_date
-      # (2020-10-01), sujeito à disponibilidade retroativa da API yfinance.
+    - ticker: "COHR"
+      name: cohr
+      category: optics_photonics
+      # Coherent — transceivers ópticos/lasers para interconexão de
+      # datacenter. Candidato a próximo gargalo da cadeia NVIDIA (óptica).
+
+    - ticker: "LITE"
+      name: lite
+      category: optics_photonics
+      # Lumentum — componentes ópticos/transceivers datacenter,
+      # mesma tese de gargalo óptico da cadeia NVIDIA que COHR.
+
+    - ticker: "LRCX"
+      name: lrcx
+      category: semiconductor_equipment
+      # Lam Research — equipamento de deposição/etch para fabricação
+      # de semicondutores avançados, gargalo de capacidade upstream.
+
+    - ticker: "KLAC"
+      name: klac
+      category: semiconductor_equipment
+      # KLA Corporation — equipamento de inspeção/metrologia de
+      # semicondutores, gargalo de capacidade upstream.
