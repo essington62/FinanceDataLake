@@ -60,4 +60,4 @@ Sem testes/lint configurados. Validar mudanças rodando o script individual e in
 1. Incluir entrada em `conf/tickers.yml` no grupo correto, com `category` consistente com as existentes.
 2. Rodar o script da fonte; a primeira carga faz backfill desde `global.start_date`.
 3. Commit no padrão do histórico: `Adiciona <TICKERS> (<racional curto>)`.
-4. Atualizar a contagem de tickers no `README.md` (atualmente desatualizada: diz 44; universo real = 2 índices + 58 ativos yfinance, 14 séries FRED).
+4. Atualizar a contagem de tickers no `README.md` (seção Escopo) — usar o one-liner de contagem.

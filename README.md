@@ -6,7 +6,7 @@ sinais de trading ou news — isso fica no projeto `crypto-market-state`.
 
 ## Escopo
 
-- **Fontes:** yfinance (44 tickers: índices, commodities, ETFs, FX) e FRED (14 séries macro).
+- **Fontes:** yfinance (60 tickers: 2 índices + 58 ativos — commodities, ETFs, FX, ações IA/semis) e FRED (14 séries macro).
 - **Cadência:** diária. Nenhuma rotina intraday.
 - **Saída local:** `data/business_day/*.parquet` (ativos yfinance) e
   `data/macro_daily/*.parquet` (índices yfinance + séries FRED).
